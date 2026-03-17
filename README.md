@@ -31,6 +31,7 @@ Aplikasi Android sederhana untuk sistem manajemen perhotelan (RBC Hotel) yang be
 
 ## 👨‍💻 Informasi Pengembang
 * **Nama:** Ahmad Kurnia
-* **Kelas:** TIF RP 24A
+* **Kelas:** TIF 24 RP CNS D 
 * **Program Studi:** Teknik Informatika
 * **Universitas:** Universitas Teknologi Bandung
+* **Semester:** 4
