@@ -2,6 +2,11 @@
 
 Aplikasi Android sederhana untuk sistem manajemen perhotelan (RBC Hotel) yang berfokus pada implementasi UI/UX yang modern, *Input Control*, dan *User Interaction*. Proyek ini dikembangkan sebagai pemenuhan tugas mata kuliah Pemrograman Mobile (Pertemuan 5).
 
+## 🎥 Video Demo Aplikasi
+Silakan lihat video demonstrasi fitur-fitur aplikasi (durasi 2-3 menit) melalui tautan berikut:
+* 📺 **[Tonton Demo di YouTube](https://youtube.com/shorts/CGNUUiWPnfM?si=MYcZWHsjyORHfP3H)**
+* 📁 **[Lihat/Unduh via Google Drive](https://drive.google.com/file/d/1kgFdIMPK_v5q61x64Oe_VBadcZMgiNVC/view?usp=sharing)**
+
 ## 📱 Fitur Utama (Sesuai Kriteria Tugas)
 
 1. **Complete Form**
