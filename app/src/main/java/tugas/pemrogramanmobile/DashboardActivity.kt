@@ -1,9 +1,8 @@
 package tugas.pemrogramanmobile
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
+import androidx.fragment.app.Fragment
 import tugas.pemrogramanmobile.databinding.ActivityDashboardBinding
 
 class DashboardActivity : AppCompatActivity() {
@@ -15,16 +14,37 @@ class DashboardActivity : AppCompatActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnGoToRegister.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            val options = ActivityOptionsCompat.makeCustomAnimation(this, android.R.anim.fade_in, android.R.anim.fade_out)
-            startActivity(intent, options.toBundle())
+        // Tampilkan HomeFragment saat pertama kali dibuka
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
         }
 
-        binding.btnGoToLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            val options = ActivityOptionsCompat.makeCustomAnimation(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-            startActivity(intent, options.toBundle())
+        setupBottomNavigation()
+    }
+
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.nav_saved -> {
+                    replaceFragment(SavedFragment())
+                    true
+                }
+                R.id.nav_profile -> {
+                    replaceFragment(ProfileFragment())
+                    true
+                }
+                else -> false
+            }
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

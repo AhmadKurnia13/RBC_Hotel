@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RBC_Hotel</string>
+
+    <string name="desc_logo_splash">RBC_Hotel</string>
 </resources>

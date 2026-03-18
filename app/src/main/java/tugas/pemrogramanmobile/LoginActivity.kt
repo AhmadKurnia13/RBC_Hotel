@@ -13,18 +13,26 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Initialize ViewBinding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Login button listener
         binding.btnLogin.setOnClickListener {
             if (validateLogin()) {
                 Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
-                // Navigasi ke Dashboard jika diperlukan
+                
+                // Navigate to Dashboard
+                val intentToDashboard = Intent(this@LoginActivity, DashboardActivity::class.java)
+                startActivity(intentToDashboard)
+                finish()
             }
         }
 
+        // Navigate to Register
         binding.tvGoToRegister.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             val options = ActivityOptionsCompat.makeCustomAnimation(this, android.R.anim.fade_in, android.R.anim.fade_out)
             startActivity(intent, options.toBundle())
             finish()

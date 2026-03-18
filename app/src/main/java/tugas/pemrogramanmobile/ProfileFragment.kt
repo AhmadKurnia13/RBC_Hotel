@@ -1,0 +1,63 @@
+package tugas.pemrogramanmobile
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import tugas.pemrogramanmobile.databinding.FragmentProfileBinding
+
+class ProfileFragment : Fragment() {
+
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupMenuListeners()
+    }
+
+    private fun setupMenuListeners() {
+        binding.btnHistory.setOnClickListener {
+            showToast("Membuka Riwayat Pesanan")
+        }
+
+        binding.btnSettings.setOnClickListener {
+            showToast("Membuka Pengaturan Akun")
+        }
+
+        binding.btnHelp.setOnClickListener {
+            showToast("Membuka Pusat Bantuan")
+        }
+
+        binding.btnLogout.setOnClickListener {
+            // Logika Logout: Tampilkan Toast dan pindah ke LoginActivity
+            Toast.makeText(requireContext(), "Berhasil Keluar", Toast.LENGTH_SHORT).show()
+            
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
